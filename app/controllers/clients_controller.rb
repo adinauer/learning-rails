@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   def index
     puts "blablub"
-    @testBla = "lorem ipsum dolor sit amet"
+    @test_bla = "lorem ipsum dolor sit amet"
     @para = params
 
     # redirect_to root_url
