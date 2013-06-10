@@ -2,6 +2,11 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require 'lib/java/fhbay-commons.jar'
+require 'lib/java/fhbay-client-commons.jar'
+require 'lib/java/jboss-client.jar'
+require 'lib/java/hibernate-core-4.1.9.Final.jar'
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
