@@ -1,5 +1,7 @@
 require 'java'
 
+java_import 'java.lang.System'
+
 java_import 'at.dinauer.fhbay.presentation.PmodArticle'
 java_import 'at.dinauer.fhbay.util.DataFetcher'
 java_import 'at.dinauer.fhbay.util.DataStore'
