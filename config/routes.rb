@@ -7,7 +7,7 @@ LearningRails::Application.routes.draw do
 
   root to: 'statuses#index'
 
-  match 'clients(/:id)(/:category_name)' => 'clients#index'
+  match 'category(/:category_id)(/:category_name)(/:subcategory_name)' => 'articles#by_category'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

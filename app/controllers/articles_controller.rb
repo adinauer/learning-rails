@@ -18,4 +18,14 @@ class ArticlesController < ApplicationController
     fetcher.fetch_all_articles(dataStore)
     @articles = dataStore.articles
   end
+
+  def by_category
+    fetcher = DataFetcher.new
+    dataStore = RailsDataStore.new
+
+    fetcher.fetch_articles_by_category(dataStore, params[:category_id])
+    @articles = dataStore.articles
+
+    render 'articles/index'
+  end
 end
