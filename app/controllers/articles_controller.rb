@@ -14,8 +14,8 @@ class ArticlesController < ApplicationController
   def index
     fetcher = DataFetcher.new
     dataStore = RailsDataStore.new
-    fetcher.fetchAllArticles(dataStore)
 
+    fetcher.fetch_all_articles(dataStore)
     @articles = dataStore.articles
   end
 end
