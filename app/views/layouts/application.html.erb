@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LearningRails</title>
+  <title>FHBay</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="#" class="brand">Learning Rails</a>
-				<ul class="nav">
-					<li><%= link_to "All Statuses", statuses_path %></li>
-				</ul>
+				<a href="<%= root_url %>" class="brand">
+					<img class="logo" src="/assets/fhbay.png" alt="FHBay" />
+				</a>
+
+				<div class="fhbaynav">
+					<ul class="nav">
+						<li><%= link_to "Offer an article", statuses_path %></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+
+	<div class="container-fluid">
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 
-		<%= yield %>
+		<div class="row-fluid">
+			<div class="span3">
+				<ul class="nav nav-list">
+					<li class="nav-header">Categories</li>
+
+					<li class="active"><a href="#">Cameras</a></li>
+					<li><a href="#">Bananas</a></li>
+					<li><a href="#">Apples</a></li>
+					<li><a href="#">Oranges</a></li>
+				</ul>
+			</div>
+
+			<div class="span9">
+				<%= yield %>
+			</div>
+		</div>
 	</div>
 </body>
+
 </html>

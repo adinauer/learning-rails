@@ -2,9 +2,9 @@ LearningRails::Application.routes.draw do
   devise_for :users
 
   resources :statuses
-  root to: 'statuses#index'
-
   resources :clients
+  
+  root to: 'statuses#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
