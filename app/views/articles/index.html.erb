@@ -1,0 +1,25 @@
+<div class="page-header">
+	<h1>Articles</h1>
+</div>
+
+<table class="table">
+	<tbody>
+		<% @articles.each do |article| %>
+		<tr>
+			<td width="55%"><%= article.name %></td>
+			<td width="25%">
+				<% if article.has_auction_ended %>
+					<span class="endDate">ends <%= article.end_date_formatted %></span>
+				<% else %>
+					<span class="endDate endDate-ended">ended</span>
+				<% end %>
+			</td>
+			<td width="20%" class="text-right">
+				<span class="price">€ <%= article.current_price %></span>
+				<br />
+				<span class="bids"><%= article.number_of_bids %> bids</span>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

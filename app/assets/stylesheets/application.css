@@ -14,3 +14,22 @@ body {
 .fhbaynav {
 	margin-top: 15px;
 }
+
+.price {
+	font-weight: bold;
+	font-style: normal;
+	font-size: 1.2em;
+}
+
+.endDate, .bids {
+	font-size: 0.9em;
+	color: #777;
+}
+
+.endDate-ended {
+	font-weight: bold;
+}
+
+.text-right {
+	text-align: right !important;
+}

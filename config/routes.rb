@@ -3,6 +3,7 @@ LearningRails::Application.routes.draw do
 
   resources :statuses
   resources :clients
+  resources :articles
 
   root to: 'statuses#index'
 
