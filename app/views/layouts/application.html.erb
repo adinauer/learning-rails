@@ -33,9 +33,18 @@
 				<h2>Categories</h2>
 				<ul class="nav nav-list">
 					<% @categories.each do |category| %>
-						<li class="nav-header"><a href="#"><%= category.name %></a></li>
+						<li class="nav-header">
+							<a href="/category/<%= "#{category.id}/#{category.url_name}" %>">
+								<%= category.name %>
+							</a>
+						</li>
+
 						<% category.sub_categories.each do |sub_category| %>
-							<li><a href="#"><%= sub_category.name %></a></li>
+							<li>
+								<a href="/category/<%= "#{sub_category.id}/#{sub_category.url_name}" %>">
+									<%= sub_category.name %>
+								</a>
+							</li>
 						<% end %>
 					<% end %>
 				</ul>
