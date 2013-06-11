@@ -1,9 +1,0 @@
-{
-	"folders":
-	[
-		{
-			"path": "/repos/learning-rails",
-			"folder_exclude_patterns": [ "tmp"]
-		}
-	]
-}
