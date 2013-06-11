@@ -30,11 +30,13 @@
 
 		<div class="row-fluid">
 			<div class="span3">
+				<h2>Categories</h2>
 				<ul class="nav nav-list">
-					<li class="nav-header">Categories</li>
-					
 					<% @categories.each do |category| %>
-						<li><a href="#"><%= category.name %></a></li>
+						<li class="nav-header"><a href="#"><%= category.name %></a></li>
+						<% category.sub_categories.each do |sub_category| %>
+							<li><a href="#"><%= sub_category.name %></a></li>
+						<% end %>
 					<% end %>
 				</ul>
 			</div>
