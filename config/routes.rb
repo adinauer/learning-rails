@@ -3,8 +3,10 @@ LearningRails::Application.routes.draw do
 
   resources :statuses
   resources :clients
-  
+
   root to: 'statuses#index'
+
+  match 'clients(/:id)(/:category_name)' => 'clients#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
