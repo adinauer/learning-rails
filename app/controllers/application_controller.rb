@@ -1,19 +1,7 @@
 require 'java'
 
 java_import 'at.dinauer.fhbay.util.DataFetcher'
-
-class RailsDataStore
-  attr_reader :categories
-
-  def store_categories(categories)
-    puts "categories: #{categories.size}"
-    categories.each do |category|
-      puts category.name
-    end
-
-    @categories = categories
-  end
-end
+java_import 'at.dinauer.fhbay.util.PropertyBasedDataStore'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
@@ -22,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def find_categories
     fetcher = DataFetcher.new
-    dataStore = RailsDataStore.new
+    dataStore = PropertyBasedDataStore.new
     fetcher.fetchCategories(dataStore)
 
     @categories = dataStore.categories
