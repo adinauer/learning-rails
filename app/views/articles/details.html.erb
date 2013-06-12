@@ -1,0 +1,94 @@
+<div id="articleDetails">
+	<h1><%= @selected_article.name %></h1>
+	<table id="articleInfos" align="center">
+		<tbody>
+			<tr>
+				<td class="fhbay-label">Time left:</td>
+				<td colspan="2">
+					<% if @selected_article.has_auction_ended %>
+						<span class="timeLeft">
+							<span class="ended">ended</span>
+						</span>
+					<% end %>
+					<span class="endDate">(<%= @selected_article.end_date_formatted %>)</span>
+				</td>
+			</tr>
+			
+			<tr class="biddingArea noBottomSpacing">
+				<td class="fhbay-label" rowspan="2">Current bid:</td>
+				<td>
+					<span class="price">€ <%= @selected_article.current_price %></span>
+				</td>
+				<td>
+					<span class="bids">
+						[ 
+							<a href="/bidHistory?articleId=<%= @selected_article.id %>">
+								<%= @selected_article.number_of_bids %> bids 
+							</a> 
+						]
+					</span>
+				</td>
+			</tr>
+			
+			<% if @selected_article.has_auction_ended %>
+			<tr class="biddingArea">
+				<td colspan="2">
+					<em>The auction has ended.</em>
+				</td>
+			</tr>
+			<% else %>
+			<form method="post" action="/fhbay-web/bid">
+				<input type="hidden" name="articleId" value="24" />
+			<tr class="biddingArea">
+				<td>
+					<input name="amount" id="bidAmount" class="styledInput" type="text" placeholder="enter your bid here" /><br />
+					<span class="nextBidHint">Enter € 24991.0 or more</span>
+				</td>
+				<td>
+					<input class="cupid-green-button" id="bidButton" type="submit" value="Place bid" />
+				</td>
+			</tr>
+			</form>
+			<% end %>
+
+			<tr>
+				<td class="fhbay-label">Seller:</td>
+				<td colspan="2"><%= @selected_article.seller_name %></td>
+			</tr>
+			
+			<tr>
+				<td class="fhbay-label">Shipping:</td>
+				<td colspan="2">
+					<span><em>FREE</em> Economy Shipping</span><br />
+					<span class="shippingInfo">Item location: <em>Austria</em></span><br />
+					<span class="shippingInfo">Ships to: <em>Austria</em></span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="fhbay-label">Delivery:</td>
+				<td colspan="2">
+					<span>
+						Estimated between<br />
+						<%= @selected_article.delivery_date_min_formatted %> and <%= @selected_article.delivery_date_max_formatted %>
+					</span> 
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="fhbay-label">Returns:</td>
+				<td colspan="2">
+					<span>
+						14 days money back or item exchange,<br /> 
+						buyer pays return shipping
+					</span> 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h2>Description</h2>
+	<p>
+		<%= @selected_article.description %>
+	</p>
+</div>

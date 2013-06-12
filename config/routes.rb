@@ -5,9 +5,10 @@ LearningRails::Application.routes.draw do
   resources :clients
   resources :articles
 
-  root to: 'statuses#index'
+  root to: 'articles#index'
 
-  match 'category(/:category_id)(/:category_name)(/:subcategory_name)' => 'articles#by_category'
+  match 'category/:category_id(/:category_name)(/:subcategory_name)' => 'articles#by_category'
+  match 'article/:article_id(/:article_name)' => 'articles#details'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
