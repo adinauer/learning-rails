@@ -1,4 +1,6 @@
 require 'java'
+require 'rest_client'
+require 'json'
 
 java_import 'at.dinauer.fhbay.util.DataFetcher'
 java_import 'at.dinauer.fhbay.util.PropertyBasedDataStore'
@@ -28,5 +30,20 @@ class ArticlesController < ApplicationController
 
     fetcher.fetch_article_by_id(dataStore, params[:article_id])
     @selected_article = dataStore.selected_article
+  end
+
+  def bid_history
+    article_id = params[:articleId]
+
+    fetcher = DataFetcher.new
+    dataStore = PropertyBasedDataStore.new
+
+    fetcher.fetch_article_by_id(dataStore, article_id)
+    @selected_article = dataStore.selected_article
+
+    json = RestClient.get "http://localhost:8080/fhbay-web/api/bidHistory/#{article_id}"
+    @bids = JSON.parse(json)
+
+    render 'articles/bid_history'
   end
 end

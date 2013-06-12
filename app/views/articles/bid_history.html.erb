@@ -1,0 +1,38 @@
+<div class="articleDetails">
+	<div class="page-header">
+		<h1>Bid History</h1>
+	</div>
+
+	<div id="bids">
+	<h1>Bids for <em><%= @selected_article.name %></em></h1> 
+	<table id="bidList">
+		<thead>
+			<tr>
+				<th>Bidder</th>
+				<th>Bid Amount</th>
+				<th>Bid Time</th>
+				<th>Price at time of Bid</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @bids.each do |bid| %>
+				<tr<% if bid["winning"] %> class="winningBid"<% end %>>
+					<td><%= bid["bidderName"] %></td>
+					<td>€ <%= bid["amount"] %></td>
+					<td><%= bid["bidTimeFormatted"] %></td>
+					<td>€ <%= bid["priceAtBidTime"] %></td>
+				</tr>
+			<% end %>
+			<tr>
+				<td class="startingPrice">Starting Price</td>
+				<td>€ <%= @selected_article.initial_price %></td>
+				<td><%= @selected_article.start_date_formatted %></td>
+				<td>-</td>
+			</tr>
+		</tbody>
+	</table>
+	<p class="bidExplanation">If two people bid the same amount, the first bid has priority.</p>
+</div>
+
+
+</div>

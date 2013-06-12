@@ -120,6 +120,61 @@ em {
 		.shippingInfo {
 			font-size: 0.8em;
 		}
+
+	#bids {
+		font-size: 0.9em;
+		border-top: 1px solid #ddd;
+		margin-top: 5px;
+	}
+	
+		#bids h1 {
+			margin-top: 25px;
+			font-size: 1.3em;
+			font-weight: normal;
+			color: #777;
+		}
+		
+			#bids h1 em {
+				color: #000;
+			}
+		
+		#bidList {
+			width: 100%;
+			color: #555;
+			border-collapse: collapse;
+		}
+		
+			#bidList thead {
+				font-size: 0.7em;
+				text-align: left;
+			}
+			
+			#bidList tbody tr {
+				border-top: 1px solid #ddd;
+			}
+			
+				#bidList tbody td {
+					padding: 15px 0px;
+				}
+		
+			.noBidsPlacedYet {
+				margin: 100px;
+				font-weight: bold;
+				font-size: 1.1em;
+			}
+			
+			#bidList .startingPrice {
+				color: #888;
+			}
+			
+			#bidList .winningBid {
+				font-weight: bold;
+			}
+			
+		.bidExplanation {
+			font-size: 0.8em;
+			color: #777;
+		}
 		
 .cupid-green-button {
 	background-color: #7fbf4d;

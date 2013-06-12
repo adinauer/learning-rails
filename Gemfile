@@ -13,6 +13,9 @@ else
 	gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
+gem 'rest-client'
+gem 'json'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
