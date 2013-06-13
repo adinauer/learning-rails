@@ -46,4 +46,13 @@ class ArticlesController < ApplicationController
 
     render 'articles/bid_history'
   end
+
+  def place_bid
+    customerId = 16
+    response = RestClient.post 'http://localhost:8080/fhbay-web/api/placeBid', { 'articleId' => params[:articleId], 'customerId' => customerId, 'amount' => params[:amount] }.to_json, :content_type => :json, :accept => :json
+
+    puts response
+
+    redirect_to :back
+  end
 end

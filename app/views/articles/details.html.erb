@@ -37,12 +37,12 @@
 				</td>
 			</tr>
 			<% else %>
-			<form method="post" action="/fhbay-web/bid">
-				<input type="hidden" name="articleId" value="24" />
+			<form method="post" action="/bid">
+				<input type="hidden" name="articleId" value="<%= @selected_article.id %>" />
 			<tr class="biddingArea">
 				<td>
 					<input name="amount" id="bidAmount" class="styledInput" type="text" placeholder="enter your bid here" /><br />
-					<span class="nextBidHint">Enter € 24991.0 or more</span>
+					<span class="nextBidHint">Enter € <%= @selected_article.minimum_bid %> or more</span>
 				</td>
 				<td>
 					<input class="cupid-green-button" id="bidButton" type="submit" value="Place bid" />

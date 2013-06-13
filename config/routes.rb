@@ -10,6 +10,7 @@ LearningRails::Application.routes.draw do
   match 'category/:category_id(/:category_name)(/:subcategory_name)' => 'articles#by_category'
   match 'article/:article_id(/:article_name)' => 'articles#details'
   match 'bidHistory' => 'articles#bid_history'
+  match 'bid' => 'articles#place_bid'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
