@@ -49,10 +49,16 @@ class ArticlesController < ApplicationController
 
   def place_bid
     customerId = 16
-    response = RestClient.post 'http://localhost:8080/fhbay-web/api/placeBid', { 'articleId' => params[:articleId], 'customerId' => customerId, 'amount' => params[:amount] }.to_json, :content_type => :json, :accept => :json
+    bid_status = RestClient.post 'http://localhost:8080/fhbay-web/api/placeBid', { 'articleId' => params[:articleId], 'customerId' => customerId, 'amount' => params[:amount] }.to_json, :content_type => :json, :accept => :json
+    bid_status = bid_status.gsub!(/\A"|"\Z/, '')
 
-    puts response
+    20.times { puts '*'}
+    puts "<#{bid_status == '"ACCEPTED"'}>"
 
-    redirect_to :back
+    if bid_status == 'ACCEPTED'
+      redirect_to :back, :notice => 'Bid successfuly placed.'
+    else
+      redirect_to :back, :alert => "Unable to place bid: #{bid_status}"
+    end
   end
 end
